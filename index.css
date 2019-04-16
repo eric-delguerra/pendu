@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'UpstairsCVJMgraff';
+    src: url('UpstairsCVJMgraff.ttf');
+}
+.unknow {
+
+    font-size: 50px;
+    text-align: center;
+}
+
+.game {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
+
+.alert {
+    margin: auto;
+
+}
+#message {
+    height: 150px;
+    display: flex;
+}
+.choose {
+    font-family: 'UpstairsCVJMgraff', Serif;
+    color: white;
+    font-size: 100px;
+}
+.acceuil{
+    font-family: 'UpstairsCVJMgraff', Serif;
+    color: red;
+    font-size: 100px;
+}
+.find {
+    font-family: 'UpstairsCVJMgraff', Serif;
+    color: darkmagenta;
+    font-size: 100px;
+}
+
+

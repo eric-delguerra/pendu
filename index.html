@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" type="text/css" href="fullpage.css"/>
+    <title>Pendu</title>
+</head>
+<body>
+
+<div style="text-align: center" id="fullpage">
+    <ul id="myMenu">
+        <li data-menuanchor="firstPage" class="active"><a href="#firstPage">First section</a></li>
+        <li data-menuanchor="secondPage"><a href="#secondPage">Second section</a></li>
+        <li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
+        <li data-menuanchor="pendu"><a href="#pendu">Pendu</a></li>
+    </ul>
+    <div class="section" data-anchor="firstPage">
+        <p class="acceuil">Pendu</p>
+        <div class="container">
+            <div class="button">Créer un petit pendu pour vos amis</div>
+        </div>
+    </div>
+    <div class="section" data-anchor="secondPage">
+
+        <p class="choose">Choose your word !</p>
+        <div class="ask">
+            <input type="text" id="saisie">
+        </div>
+    </div>
+    <div class="section" data-anchor="thirdPage">
+        <p class="find">Can you find the word ?</p>
+        <div id="message">
+            <p class="alert"></p>
+        </div>
+        <div class="game">
+            <input type="text" id="try">
+
+        </div>
+        <p id="attempt"></p>
+        <img src="" alt="" id="pendu" style="height: 400px; width: 400px;">
+    </div>
+
+    <br><br>
+
+</div>
+
+
+<script src="jquery.js"></script>
+<script type="text/javascript" src="fullpage.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
