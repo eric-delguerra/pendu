@@ -814,7 +814,7 @@ $('document').ready(() => {
 
     $('#try').on('keypress', (e) => {
         if (e.which === 13) {
-            userTry = $('#try').val()
+            userTry = $('#try').val().toLowerCase()
             $('#try').val('')
 
             if (userTry === reponse) {
