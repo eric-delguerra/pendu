@@ -2,10 +2,15 @@
     font-family: 'UpstairsCVJMgraff';
     src: url('UpstairsCVJMgraff.ttf');
 }
+@font-face {
+    font-family: 'Surgarpunch DEMO';
+    src: url('sugarpunch.ttf');
+}
 .unknow {
-
     font-size: 50px;
     text-align: center;
+    font-family: 'Surgarpunch DEMO', Serif;
+    color: maroon;
 }
 
 .game {
@@ -28,20 +33,35 @@ input {
     height: 150px;
     display: flex;
 }
+p.carefull {
+    font-size: 16px;
+    color: orangered;
+}
+
 .choose {
-    font-family: 'UpstairsCVJMgraff', Serif;
+    font-family: 'Surgarpunch DEMO', Serif;
     color: white;
     font-size: 100px;
 }
 .acceuil{
-    font-family: 'UpstairsCVJMgraff', Serif;
+    font-family: 'Surgarpunch DEMO', Serif;
     color: red;
     font-size: 100px;
 }
 .find {
-    font-family: 'UpstairsCVJMgraff', Serif;
+    font-family: 'Surgarpunch DEMO', Serif;
     color: darkmagenta;
     font-size: 100px;
+}
+.random  {
+    font-family: 'Surgarpunch DEMO', Serif;
+    color: #F55645;
+    font-size: 100px;
+}
+.replay {
+    font-family: 'Surgarpunch DEMO', Serif;
+    color: darkmagenta;
+    font-size: 50px;
 }
 
 

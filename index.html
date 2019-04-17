@@ -9,7 +9,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="input.css">
     <link rel="stylesheet" type="text/css" href="fullpage.css"/>
     <title>Pendu</title>
 </head>
@@ -22,21 +22,34 @@
         <li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
         <li data-menuanchor="pendu"><a href="#pendu">Pendu</a></li>
     </ul>
-    <div class="section" data-anchor="firstPage">
-        <p class="acceuil">Pendu</p>
+    <div class="section active" data-anchor="firstPage">
+
+        <p class="acceuil">$* PENDU #!</p>
         <div class="container">
-            <div class="button">Créer un petit pendu pour vos amis</div>
+            <div class="button" id="playTogether">Créer un petit pendu pour vos amis</div>
+        </div>
+        <div class="container">
+            <div class="button" id="solo">Jouer solo</div>
         </div>
     </div>
     <div class="section" data-anchor="secondPage">
-
-        <p class="choose">Choose your word !</p>
-        <div class="ask">
-            <input type="text" id="saisie">
+        <div class="slide" data-anchor="slide1">
+            <p class="choose">Choose your word !</p>
+            <div class="ask">
+                <input  type="password" id="saisie">
+            </div>
         </div>
+        <div class="slide" data-anchor="slide2">
+            <p class="random">Random word !</p>
+            <div class="container">
+                <div class="button" id="getRandom">Choose a word for me !</div>
+            </div>
+        </div>
+
     </div>
     <div class="section" data-anchor="thirdPage">
         <p class="find">Can you find the word ?</p>
+        <p id="lastTry"></p>
         <div id="message">
             <p class="alert"></p>
         </div>
@@ -46,6 +59,9 @@
         </div>
         <p id="attempt"></p>
         <img src="" alt="" id="pendu" style="height: 400px; width: 400px;">
+        <div class="end">
+            <div  id="replay"><p class="replay">Rejouer</p></div>
+        </div>
     </div>
 
     <br><br>
@@ -55,6 +71,7 @@
 
 <script src="jquery.js"></script>
 <script type="text/javascript" src="fullpage.js"></script>
+<script src="input.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

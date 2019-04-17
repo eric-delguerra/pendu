@@ -32,7 +32,7 @@ body {
           flex: 1 1 auto;
   margin: 10px;
   padding: 20px;
-  border: 1px solid black;
+  border: 2px solid black;
   text-align: center;
   text-transform: uppercase;
   position: relative;
@@ -42,14 +42,14 @@ body {
 }
 .button:after {
    position: absolute;
-   -webkit-transition: .3s;
-   transition: .3s;
+   -webkit-transition: .7s;
+   transition: .7s;
    content: '';
    width: 0;
    left: 50%;
-   bottom: 0;
-   height: 3px;
-   background: darkcyan;
+   top: 0;
+   height: 2px;
+   background: orangered;
  }
 /*.button:nth-of-type(2):after {*/
 /*  left: 0;*/
@@ -121,3 +121,68 @@ body {
 /*.button:hover:nth-of-type(10):after {*/
 /*  width: 0%;*/
 /*}*/
+.end {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 250px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 8vh;
+}
+#replay {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin: 10px;
+    padding: 20px;
+    /*border: 2px solid black;*/
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+#replay:after {
+    position: absolute;
+    -webkit-transition: .7s;
+    transition: .7s;
+    content: '';
+    width: 0;
+    left: 50%;
+    bottom: 30px;
+    height: 2px;
+    background: darkmagenta;
+}
+#replay:nth-of-type(5):after {
+    height: 120%;
+    left: -10%;
+    -webkit-transform: skewX(15deg);
+    transform: skewX(15deg);
+    z-index: -1;
+}
+#replay:hover {
+    cursor: pointer;
+}
+#replay:hover:after {
+    width: 100%;
+    left: 0;
+}
+#replay:hover:nth-of-type(5) {
+    color: #5bcaff;
+}
+#replay:hover:nth-of-type(5):after {
+    left: -10%;
+    width: 120%;
+}
