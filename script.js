@@ -892,7 +892,7 @@ $('document').ready(() => {
         } else {
             $('p#attempt').html('<p class="unknow">Merci de ne pas utiliser de caractères speciaux ou chiffres</p>')
             $('#attempt').delay(3000).fadeOut()
-            setTimeout(function(){
+            setTimeout(function () {
                 fullpage_api.moveSectionUp()
                 $('#attempt').delay(3000).fadeIn()
             }, 3000)

@@ -7,7 +7,7 @@
     src: url('sugarpunch.ttf');
 }
 .unknow {
-    font-size: 50px;
+    font-size: 3.125rem;
     text-align: center;
     font-family: 'Surgarpunch DEMO', Serif;
     color: maroon;
@@ -30,43 +30,43 @@ input {
 
 }
 #message {
-    height: 150px;
+    height: 9.375rem;
     display: flex;
 }
 p.carefull {
-    font-size: 16px;
+    font-size: 1rem;
     color: orangered;
 }
 
 .choose {
     font-family: 'Surgarpunch DEMO', Serif;
     color: white;
-    font-size: 100px;
+    font-size: 6.25rem
 }
 .acceuil{
     font-family: 'Surgarpunch DEMO', Serif;
     color: red;
-    font-size: 100px;
+    font-size: 6.25rem
 }
 .find {
     font-family: 'Surgarpunch DEMO', Serif;
     color: darkmagenta;
-    font-size: 100px;
+    font-size: 6.25rem
 }
 .random  {
     font-family: 'Surgarpunch DEMO', Serif;
     color: #F55645;
-    font-size: 100px;
+    font-size: 6.25rem
 }
 .replay {
     font-family: 'Surgarpunch DEMO', Serif;
     color: darkmagenta;
-    font-size: 50px;
+    font-size: 3.125rem
 }
 #lastTry {
     font-family: 'Surgarpunch DEMO', Serif;
     color: darkmagenta;
-    font-size: 50px;
+    font-size: 3.125rem
 }
 
 
