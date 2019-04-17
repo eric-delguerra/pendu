@@ -15,6 +15,7 @@ $('document').ready(() => {
     fullpage_api.setAllowScrolling(true);
     fullpage_api.setScrollingSpeed(1000)
     let wordList = [
+        "belouga",
         "chaud",
         "mot",
         "mais",
@@ -802,6 +803,7 @@ $('document').ready(() => {
         if (e.which === 13) {
             fullpage_api.moveSectionDown()
             reponse = $('#saisie').val().toLowerCase()
+            $('#saisie').val('')
             if (testReponse()) {
                 $('.ask').fadeOut()
                 $('.game').fadeIn()
@@ -813,20 +815,25 @@ $('document').ready(() => {
     $('#try').on('keypress', (e) => {
         if (e.which === 13) {
             userTry = $('#try').val()
+            $('#try').val('')
 
             if (userTry === reponse) {
                 $('#attempt').html('<p class="unknow">GG t\'as win, c\'était bien "' + reponse.toUpperCase() + '"</p>')
-                playAgain()
+                setTimeout(function () {
+                    playAgain()
+                }, (2000))
             } else if (userTry.length > 1) {
                 $('.alert').html('<div><p class="carefull">Attention rentre qu\'un seul caractère</p></div>').fadeIn(1000)
                 $('.alert').delay(2000).fadeOut(1000)
                 essais++
                 imgPendu.attr('src', 'PENDU/' + essais + '.png').fadeIn()
                 fullpage_api.moveSectionDown()
-                if (essais >= 10) {
+                if (essais === 10) {
                     $('p').html('<p class="unknow">PENDU ! La réponse était "' + reponse.toUpperCase() + '"</p>')
                     essais++
-                   playAgain()
+                    setTimeout(function () {
+                        playAgain()
+                    }, (2000))
                 }
             }
             if (userTry.length === 1) {
@@ -860,12 +867,16 @@ $('document').ready(() => {
             $('#attempt').html('<p class="unknow" id="word">' + wordToFind.join("").toUpperCase() + '</p>')
             if ($('#word').text() === reponse.toUpperCase()) {
                 $('#attempt').html('<p class="unknow">Bien joué ! La réponse était bien "' + reponse.toUpperCase() + '"</p>')
-                playAgain()
+                setTimeout(function () {
+                    playAgain()
+                }, (2000))
 
             }
         } else {
             $('#attempt').html('<p class="unknow">PENDU ! La réponse était "' + reponse.toUpperCase() + '"</p>')
-            playAgain()
+            setTimeout(function () {
+                playAgain()
+            }, (2000))
         }
 
     }
@@ -880,6 +891,10 @@ $('document').ready(() => {
             return true
         } else {
             $('p#attempt').html('<p class="unknow">Merci de ne pas utiliser de caractères speciaux ou chiffres</p>')
+            $('#attempt').delay(3000).fadeOut()
+            setTimeout(function(){
+                fullpage_api.moveSectionUp()
+            }, 3000)
             return false
         }
     }

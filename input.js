@@ -3,6 +3,7 @@ console.clear();
 var MAX_LIFE = 50;
 var canvas = document.querySelector('canvas');
 var input = document.querySelector('input');
+var choose = $('p.choose')
 var field = {}
 var hasFocus = false;
 var caret = document.createElement('span');
@@ -172,10 +173,10 @@ simulate(
 					caret.textContent = input.value;
 					
 					burst.call(this,12);
-					
+
 					input.classList.add('keyup');
-					setTimeout(function(){input.classList.remove('keyup')},1000);
-					
+					setTimeout(function(){input.classList.remove('keyup')},1500);
+
 				}
 		}
 );

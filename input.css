@@ -20,7 +20,7 @@ input.keyup {
   color: white;
   border-color: white;
   text-shadow: 0 0 .1025em white;
-  box-shadow: 0 0 .125em white,inset 0 0 .1125em white;
+  box-shadow: 0 0 .1025em white,inset 0 0 .1125em white;
 }
 
 canvas {
