@@ -894,6 +894,7 @@ $('document').ready(() => {
             $('#attempt').delay(3000).fadeOut()
             setTimeout(function(){
                 fullpage_api.moveSectionUp()
+                $('#attempt').delay(3000).fadeIn()
             }, 3000)
             return false
         }

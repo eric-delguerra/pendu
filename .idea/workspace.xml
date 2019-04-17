@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ca9b6f2-c898-4d8b-aad1-874dcd42bff4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.css" beforeDir="false" afterPath="$PROJECT_DIR$/input.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/input.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-962">
-              <caret line="823" column="26" selection-start-line="823" selection-start-column="26" selection-end-line="823" selection-end-column="26" />
+            <state relative-caret-position="691">
+              <caret line="896" column="50" lean-forward="true" selection-start-line="896" selection-start-column="50" selection-end-line="896" selection-end-column="50" />
               <folding>
                 <element signature="e#587#14140#0" />
               </folding>
@@ -173,18 +168,18 @@
       <workItem from="1555333719794" duration="6438000" />
       <workItem from="1555400102142" duration="22648000" />
       <workItem from="1555484893045" duration="15454000" />
-      <workItem from="1555504662801" duration="3486000" />
+      <workItem from="1555504662801" duration="4134000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48827000" />
+    <option name="totallyTimeSpent" value="49475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11513859" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11513859" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -197,7 +192,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.09317443" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.14734562" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -296,8 +291,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-962">
-          <caret line="823" column="26" selection-start-line="823" selection-start-column="26" selection-end-line="823" selection-end-column="26" />
+        <state relative-caret-position="691">
+          <caret line="896" column="50" lean-forward="true" selection-start-line="896" selection-start-column="50" selection-end-line="896" selection-end-column="50" />
           <folding>
             <element signature="e#587#14140#0" />
           </folding>
