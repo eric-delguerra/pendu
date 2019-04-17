@@ -805,6 +805,7 @@ $('document').ready(() => {
             reponse = $('#saisie').val().toLowerCase()
             $('#saisie').val('')
             if (testReponse()) {
+                $('#getRandom').fadeOut()
                 $('.ask').fadeOut()
                 $('.game').fadeIn()
             }
@@ -911,6 +912,7 @@ $('document').ready(() => {
         $('.ask').fadeIn()
         $('.game').fadeOut()
         $('#replay').fadeIn()
+        $('#getRandom').fadeIn()
         $('#replay').on('click', () => {
             fullpage_api.moveTo('firstPage')
             $('#replay').fadeOut(1000)
