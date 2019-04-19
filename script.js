@@ -1,5 +1,8 @@
 $('document').ready(() => {
+
+    if($(window).width() < 640){ $('#fullpage').removeAttr('fp-auto-height-responsive'); }
     new fullpage('#fullpage', {
+
         //options here
         autoScrolling: true,
         scrollHorizontally: true,
@@ -782,6 +785,7 @@ $('document').ready(() => {
     $('.game').hide()
     imgPendu.hide()
     $('#replay').hide()
+    $('.width').html(window.width)
 
     $('#playTogether').on('click', () => {
         fullpage_api.moveTo('secondPage', 'slide1')
