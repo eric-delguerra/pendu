@@ -1,20 +1,34 @@
 $('document').ready(() => {
 
-    if($(window).width() < 640){ $('#fullpage').removeAttr('fp-auto-height-responsive'); }
-    new fullpage('#fullpage', {
+    if($(window).width() < 640){
+        new fullpage('#fullpage', {
+            autoScrolling: false,
+            scrollHorizontally: true,
+            anchors: ['firstPage', 'secondPage', 'thirdPage'],
+            sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BaABE'],
+            // gradientTransform: ['#f2f2f2', '#4BBFC3', '#7BAABE', '#968574'] ,
+            menu: 'myMenu',
+        })
+    } else {
+        new fullpage('#fullpage', {
+            //options here
 
-        //options here
-        autoScrolling: true,
-        scrollHorizontally: true,
-        anchors: ['firstPage', 'secondPage', 'thirdPage'],
-        sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BaABE'],
-        // gradientTransform: ['#f2f2f2', '#4BBFC3', '#7BAABE', '#968574'] ,
-        menu: 'myMenu',
-        // navigation: true,
-        // navigationPosition: 'left',
-        // slidesNavigation: true,
-    });
+            autoScrolling: true,
+            scrollHorizontally: true,
+            anchors: ['firstPage', 'secondPage', 'thirdPage'],
+            sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BaABE'],
+            // gradientTransform: ['#f2f2f2', '#4BBFC3', '#7BAABE', '#968574'] ,
+            menu: 'myMenu',
+            // navigation: true,
+            // navigationPosition: 'left',
+            // slidesNavigation: true,
+
+        });
+    }
+
 //methods
+
+
     fullpage_api.setAllowScrolling(true);
     fullpage_api.setScrollingSpeed(1000)
     let wordList = [
@@ -785,7 +799,7 @@ $('document').ready(() => {
     $('.game').hide()
     imgPendu.hide()
     $('#replay').hide()
-    $('.width').html(window.width)
+
 
     $('#playTogether').on('click', () => {
         fullpage_api.moveTo('secondPage', 'slide1')
