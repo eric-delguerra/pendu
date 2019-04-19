@@ -8,6 +8,8 @@ $('document').ready(() => {
             sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BaABE'],
             // gradientTransform: ['#f2f2f2', '#4BBFC3', '#7BAABE'],
             menu: 'myMenu',
+            autofocus: false,
+            autocomplete:false
         })
     } else {
         new fullpage('#fullpage', {
@@ -24,6 +26,161 @@ $('document').ready(() => {
 
     fullpage_api.setAllowScrolling(true);
     fullpage_api.setScrollingSpeed(1000)
+    let lastTry = []
+    let wordToFind = []
+    let reponse = ""
+    let userTry
+    let regex = /^[a-zA-Z]+$/
+    let essais = 0
+    let imgPendu = $('#pendu')
+    $('.game').hide()
+    imgPendu.hide()
+    $('#replay').hide()
+    $('#playTogether').on('click', () => {
+        fullpage_api.moveTo('secondPage', 'slide1')
+    })
+
+
+    $('#solo').on('click', () => {
+        fullpage_api.moveTo('secondPage', 'slide2')
+    })
+    $('#getRandom').on('click', () => {
+        let random = Math.floor(Math.random() * wordList.length)
+        reponse = wordList[random]
+        fullpage_api.moveSectionDown()
+        if (testReponse()) {
+            $('.game').fadeIn()
+            $('#getRandom').fadeOut()
+            $('#saisie').fadeOut()
+        }
+
+    })
+    $('#saisie').on('keypress', (e) => {
+        if (e.which === 13) {
+            fullpage_api.moveSectionDown()
+            reponse = $('#saisie').val().toLowerCase()
+            $('#saisie').val('')
+            if (testReponse()) {
+                $('#getRandom').fadeOut()
+                $('.ask').fadeOut()
+                $('.game').fadeIn()
+            }
+        }
+
+    })
+
+    $('#try').on('keypress', (e) => {
+        if (e.which === 13) {
+            userTry = $('#try').val().toLowerCase()
+            $('#try').val('')
+
+            if (userTry === reponse) {
+                $('#attempt').html('<p class="unknow forPhone">GG t\'as win, c\'était bien "' + reponse.toUpperCase() + '"</p>')
+                setTimeout(function () {
+                    playAgain()
+                }, (2000))
+            } else if (userTry.length > 1) {
+                $('.alert').html('<div><p class="carefull forPhone">Attention rentre qu\'un seul caractère</p></div>').fadeIn(1000)
+                $('.alert').delay(2000).fadeOut(1000)
+                essais++
+                imgPendu.attr('src', 'PENDU/' + essais + '.png').fadeIn()
+                fullpage_api.moveSectionDown()
+                if (essais === 10) {
+                    $('p').html('<p class="unknow forPhone">PENDU ! La réponse était "' + reponse.toUpperCase() + '"</p>')
+                    essais++
+                    setTimeout(function () {
+                        playAgain()
+                    }, (2000))
+                }
+            }
+            if (userTry.length === 1) {
+                lastTry.push(userTry)
+                $('#lastTry').html('Already use : ' + lastTry.join(',').toUpperCase())
+                testLetter()
+            }
+
+        }
+
+
+    })
+
+    function testLetter() {
+
+        $('#lastTry').show()
+        let letters = []
+        let x = reponse.indexOf(userTry)
+        if (essais < 10) {
+            if (x === -1) {
+                essais++
+                imgPendu.attr('src', 'PENDU/' + essais + '.png').fadeIn()
+            } else {
+                while (x !== -1) {
+                    letters.push(x)
+                    x = reponse.indexOf(userTry, x + 1)
+                }
+            }
+            for (let i = 0; i < letters.length; i++) {
+                wordToFind.splice(letters[i], 1, userTry)
+            }
+            $('#attempt').html('<p class="unknow forPhone" id="word">' + wordToFind.join("").toUpperCase() + '</p>')
+            if ($('#word').text() === reponse.toUpperCase()) {
+                $('#attempt').html('<p class="unknow forPhone">Bien joué ! La réponse était bien "' + reponse.toUpperCase() + '"</p>')
+                setTimeout(function () {
+                    playAgain()
+                }, (2000))
+            }
+
+        } else {
+            essais++
+            imgPendu.attr('src', 'PENDU/' + essais + '.png').fadeIn()
+            $('#attempt').html('<p class="unknow forPhone">PENDU ! La réponse était "' + reponse.toUpperCase() + '"</p>')
+            setTimeout(function () {
+                playAgain()
+            }, (2000))
+        }
+    }
+
+    function testReponse() {
+
+
+        if (regex.test(reponse)) {
+            for (let i = 0; i < reponse.length; i++) {
+                wordToFind.push(" _ ")
+                $('p#attempt').html('<p class="unknow">' + wordToFind.join("").toUpperCase() + '</p>')
+            }
+            return true
+        } else {
+            $('p#attempt').html('<p class="unknow">Merci de ne pas utiliser de caractères speciaux ou chiffres</p>')
+            $('#attempt').delay(3000).fadeOut()
+            setTimeout(function () {
+                fullpage_api.moveSectionUp()
+                $('#attempt').delay(3000).fadeIn()
+            }, 3000)
+            return false
+        }
+    }
+    function playAgain() {
+        $('.find2').fadeOut()
+        $('.find').fadeOut()
+        $('#lastTry').hide()
+        lastTry = []
+        wordToFind = []
+        reponse = ""
+        essais = 0
+        imgPendu.attr('src', 'PENDU/' + essais + '.png').fadeOut()
+        $('.ask').fadeIn()
+        $('.game').fadeOut()
+        $('#replay').fadeIn()
+        $('#getRandom').fadeIn()
+        $('#replay').on('click', () => {
+            fullpage_api.moveTo('firstPage')
+            $('#replay').fadeOut(2000)
+            $('.unknow').fadeOut(2000)
+            $('.find2').fadeIn(2000)
+            $('.find').fadeIn(2000)
+        })
+    }
+
     let wordList = [
         "belouga",
         "chaud",
@@ -782,154 +939,4 @@ $('document').ready(() => {
         "pluriel",
         "revendication",
     ]
-    let lastTry = []
-    let wordToFind = []
-    let reponse = ""
-    let userTry
-    let regex = /^[a-zA-Z]+$/
-    let essais = 0
-    let imgPendu = $('#pendu')
-    $('.game').hide()
-    imgPendu.hide()
-    $('#replay').hide()
-
-
-    $('#playTogether').on('click', () => {
-        fullpage_api.moveTo('secondPage', 'slide1')
-    })
-    $('#solo').on('click', () => {
-        fullpage_api.moveTo('secondPage', 'slide2')
-    })
-    $('#getRandom').on('click', () => {
-        let random = Math.floor(Math.random() * wordList.length)
-        reponse = wordList[random]
-        fullpage_api.moveSectionDown()
-        if (testReponse()) {
-            $('.game').fadeIn()
-        }
-
-    })
-
-    $('#saisie').on('keypress', (e) => {
-        if (e.which === 13) {
-            fullpage_api.moveSectionDown()
-            reponse = $('#saisie').val().toLowerCase()
-            $('#saisie').val('')
-            if (testReponse()) {
-                $('#getRandom').fadeOut()
-                $('.ask').fadeOut()
-                $('.game').fadeIn()
-            }
-        }
-
-    })
-
-    $('#try').on('keypress', (e) => {
-        if (e.which === 13) {
-            userTry = $('#try').val().toLowerCase()
-            $('#try').val('')
-
-            if (userTry === reponse) {
-                $('#attempt').html('<p class="unknow forPhone">GG t\'as win, c\'était bien "' + reponse.toUpperCase() + '"</p>')
-                setTimeout(function () {
-                    playAgain()
-                }, (2000))
-            } else if (userTry.length > 1) {
-                $('.alert').html('<div><p class="carefull forPhone">Attention rentre qu\'un seul caractère</p></div>').fadeIn(1000)
-                $('.alert').delay(2000).fadeOut(1000)
-                essais++
-                imgPendu.attr('src', 'PENDU/' + essais + '.png').fadeIn()
-                fullpage_api.moveSectionDown()
-                if (essais === 10) {
-                    $('p').html('<p class="unknow forPhone">PENDU ! La réponse était "' + reponse.toUpperCase() + '"</p>')
-                    essais++
-                    setTimeout(function () {
-                        playAgain()
-                    }, (2000))
-                }
-            }
-            if (userTry.length === 1) {
-                lastTry.push(userTry)
-                $('#lastTry').html('Already use : ' + lastTry.join(',').toUpperCase())
-                testLetter()
-            }
-
-        }
-
-
-    })
-
-    function testLetter() {
-        $('#lastTry').show()
-        let letters = []
-        let x = reponse.indexOf(userTry)
-        if (essais < 11) {
-            if (x === -1) {
-                essais++
-                imgPendu.attr('src', 'PENDU/' + essais + '.png').fadeIn()
-            } else {
-                while (x !== -1) {
-                    letters.push(x)
-                    x = reponse.indexOf(userTry, x + 1)
-                }
-            }
-            for (let i = 0; i < letters.length; i++) {
-                wordToFind.splice(letters[i], 1, userTry)
-            }
-            $('#attempt').html('<p class="unknow forPhone" id="word">' + wordToFind.join("").toUpperCase() + '</p>')
-            if ($('#word').text() === reponse.toUpperCase()) {
-                $('#attempt').html('<p class="unknow forPhone">Bien joué ! La réponse était bien "' + reponse.toUpperCase() + '"</p>')
-                setTimeout(function () {
-                    playAgain()
-                }, (2000))
-
-            }
-        } else {
-            $('#attempt').html('<p class="unknow forPhone">PENDU ! La réponse était "' + reponse.toUpperCase() + '"</p>')
-            setTimeout(function () {
-                playAgain()
-            }, (2000))
-        }
-
-    }
-
-
-    function testReponse() {
-        if (regex.test(reponse)) {
-            for (let i = 0; i < reponse.length; i++) {
-                wordToFind.push(" _ ")
-                $('p#attempt').html('<p class="unknow">' + wordToFind.join("").toUpperCase() + '</p>')
-            }
-            return true
-        } else {
-            $('p#attempt').html('<p class="unknow">Merci de ne pas utiliser de caractères speciaux ou chiffres</p>')
-            $('#attempt').delay(3000).fadeOut()
-            setTimeout(function () {
-                fullpage_api.moveSectionUp()
-                $('#attempt').delay(3000).fadeIn()
-            }, 3000)
-            return false
-        }
-    }
-
-    function playAgain() {
-        $('.find').fadeOut()
-        $('#lastTry').hide()
-        lastTry = []
-        wordToFind = []
-        reponse = ""
-        essais = 0
-        imgPendu.attr('src', 'PENDU/' + essais + '.png').fadeOut()
-        $('.ask').fadeIn()
-        $('.game').fadeOut()
-        $('#replay').fadeIn()
-        $('#getRandom').fadeIn()
-        $('#replay').on('click', () => {
-            fullpage_api.moveTo('firstPage')
-            $('#replay').fadeOut(1000)
-            $('.unknow').fadeOut(1000)
-            $('.find').show()
-        })
-
-    }
 })

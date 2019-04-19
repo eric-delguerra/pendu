@@ -45,6 +45,11 @@ p.carefull {
     color: white;
     font-size: 6.25rem
 }
+.choose2 {
+    font-family: 'Surgarpunch DEMO', Serif;
+    color: white;
+    font-size: 3rem
+}
 .acceuil{
     font-family: 'Surgarpunch DEMO', Serif;
     color: red;
@@ -55,11 +60,21 @@ p.carefull {
     color: darkmagenta;
     font-size: 6.25rem
 }
+.find2 {
+    font-family: 'Surgarpunch DEMO', Serif;
+    color: darkmagenta;
+    font-size: 3rem
+}
 .random  {
     font-family: 'Surgarpunch DEMO', Serif;
     color: #F55645;
     font-size: 6.25rem
-}
+}.random2  {
+     font-family: 'Surgarpunch DEMO', Serif;
+     color: #F55645;
+     font-size: 3rem
+ }
+
 .replay {
     font-family: 'Surgarpunch DEMO', Serif;
     color: darkmagenta;
@@ -87,5 +102,15 @@ p.carefull {
          width: 100px;
          height: 100px;
      }
+     .choose2{
+         font-size: 0.7rem
+     }
+     .random2{
+         font-size: 0.7rem;
+     }
+     .find2{
+         font-size: 0.7rem;
+     }
+
  }
 
