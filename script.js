@@ -819,18 +819,18 @@ $('document').ready(() => {
             $('#try').val('')
 
             if (userTry === reponse) {
-                $('#attempt').html('<p class="unknow">GG t\'as win, c\'était bien "' + reponse.toUpperCase() + '"</p>')
+                $('#attempt').html('<p class="unknow forPhone">GG t\'as win, c\'était bien "' + reponse.toUpperCase() + '"</p>')
                 setTimeout(function () {
                     playAgain()
                 }, (2000))
             } else if (userTry.length > 1) {
-                $('.alert').html('<div><p class="carefull">Attention rentre qu\'un seul caractère</p></div>').fadeIn(1000)
+                $('.alert').html('<div><p class="carefull forPhone">Attention rentre qu\'un seul caractère</p></div>').fadeIn(1000)
                 $('.alert').delay(2000).fadeOut(1000)
                 essais++
                 imgPendu.attr('src', 'PENDU/' + essais + '.png').fadeIn()
                 fullpage_api.moveSectionDown()
                 if (essais === 10) {
-                    $('p').html('<p class="unknow">PENDU ! La réponse était "' + reponse.toUpperCase() + '"</p>')
+                    $('p').html('<p class="unknow forPhone">PENDU ! La réponse était "' + reponse.toUpperCase() + '"</p>')
                     essais++
                     setTimeout(function () {
                         playAgain()
@@ -865,16 +865,16 @@ $('document').ready(() => {
             for (let i = 0; i < letters.length; i++) {
                 wordToFind.splice(letters[i], 1, userTry)
             }
-            $('#attempt').html('<p class="unknow" id="word">' + wordToFind.join("").toUpperCase() + '</p>')
+            $('#attempt').html('<p class="unknow forPhone" id="word">' + wordToFind.join("").toUpperCase() + '</p>')
             if ($('#word').text() === reponse.toUpperCase()) {
-                $('#attempt').html('<p class="unknow">Bien joué ! La réponse était bien "' + reponse.toUpperCase() + '"</p>')
+                $('#attempt').html('<p class="unknow forPhone">Bien joué ! La réponse était bien "' + reponse.toUpperCase() + '"</p>')
                 setTimeout(function () {
                     playAgain()
                 }, (2000))
 
             }
         } else {
-            $('#attempt').html('<p class="unknow">PENDU ! La réponse était "' + reponse.toUpperCase() + '"</p>')
+            $('#attempt').html('<p class="unknow forPhone">PENDU ! La réponse était "' + reponse.toUpperCase() + '"</p>')
             setTimeout(function () {
                 playAgain()
             }, (2000))

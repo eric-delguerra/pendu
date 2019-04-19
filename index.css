@@ -12,7 +12,9 @@
     font-family: 'Surgarpunch DEMO', Serif;
     color: maroon;
 }
-
+.img{
+    height: 400px; width: 400px;
+}
 .game {
     text-align: center;
 }
@@ -68,5 +70,16 @@ p.carefull {
     color: darkmagenta;
     font-size: 3.125rem
 }
-
+ @media screen and (max-width: 640px) {
+     .forPhone{
+         font-size: 2rem;
+     }
+     #lastTry{
+         font-size: 1.4rem;
+     }
+     .imgMobile{
+         width: 100px;
+         height: 100px;
+     }
+ }
 
