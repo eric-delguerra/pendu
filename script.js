@@ -8,7 +8,6 @@ $('document').ready(() => {
             sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BaABE'],
             // gradientTransform: ['#f2f2f2', '#4BBFC3', '#7BAABE', '#968574'] ,
             menu: 'myMenu',
-            auto
         })
     } else {
         new fullpage('#fullpage', {
