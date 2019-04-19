@@ -6,22 +6,16 @@ $('document').ready(() => {
             scrollHorizontally: true,
             anchors: ['firstPage', 'secondPage', 'thirdPage'],
             sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BaABE'],
-            // gradientTransform: ['#f2f2f2', '#4BBFC3', '#7BAABE', '#968574'] ,
+            // gradientTransform: ['#f2f2f2', '#4BBFC3', '#7BAABE'],
             menu: 'myMenu',
         })
     } else {
         new fullpage('#fullpage', {
-            //options here
-
             autoScrolling: true,
             scrollHorizontally: true,
             anchors: ['firstPage', 'secondPage', 'thirdPage'],
             sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BaABE'],
             menu: 'myMenu',
-            // navigation: true,
-            // navigationPosition: 'left',
-            // slidesNavigation: true,
-
         });
     }
 
