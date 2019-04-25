@@ -18,7 +18,13 @@
 .game {
     text-align: center;
 }
-
+#menu{
+    height: 2rem;
+}
+#menu img{
+    height: 2rem;
+    width: 2rem;
+}
 input {
     text-align: center;
 }

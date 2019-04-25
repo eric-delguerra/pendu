@@ -1,15 +1,15 @@
 $('document').ready(() => {
 
-    if($(window).width() < 640){
+    if ($(window).width() < 640) {
         new fullpage('#fullpage', {
             autoScrolling: false,
             scrollHorizontally: true,
             anchors: ['firstPage', 'secondPage', 'thirdPage'],
             sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BaABE'],
             // gradientTransform: ['#f2f2f2', '#4BBFC3', '#7BAABE'],
-            menu: 'myMenu',
+            menu: 'menu',
             autofocus: false,
-            autocomplete:false
+            autocomplete: false
         })
     } else {
         new fullpage('#fullpage', {
@@ -17,11 +17,9 @@ $('document').ready(() => {
             scrollHorizontally: true,
             anchors: ['firstPage', 'secondPage', 'thirdPage'],
             sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BaABE'],
-            menu: 'myMenu',
+            menu: 'menu',
         });
     }
-
-//methods
 
 
     fullpage_api.setAllowScrolling(true);
@@ -40,6 +38,21 @@ $('document').ready(() => {
         fullpage_api.moveTo('secondPage', 'slide1')
     })
 
+    // Langue
+setTimeout(() => {
+    $('#menu').hide()
+}, (60000))
+    langueDeBase()
+    $('#frFlag').on('click', () => {
+        $('#menu').fadeOut(2000)
+    })
+    $('#enFlag').on('click', () => {
+        $('*.fr').hide()
+        $('*.en').show()
+        $('#menu').fadeOut(2000)
+    })
+
+    //Type de jeux
 
     $('#solo').on('click', () => {
         fullpage_api.moveTo('secondPage', 'slide2')
@@ -53,8 +66,8 @@ $('document').ready(() => {
             $('#getRandom').fadeOut()
             $('#saisie').fadeOut()
         }
-
     })
+
     $('#saisie').on('keypress', (e) => {
         if (e.which === 13) {
             fullpage_api.moveSectionDown()
@@ -68,6 +81,8 @@ $('document').ready(() => {
         }
 
     })
+
+    // Essaie des touches
 
     $('#try').on('keypress', (e) => {
         if (e.which === 13) {
@@ -103,6 +118,12 @@ $('document').ready(() => {
 
 
     })
+
+    // Fonction
+
+    function langueDeBase() {
+        $('*.en').hide()
+    }
 
     function testLetter() {
 
@@ -159,6 +180,7 @@ $('document').ready(() => {
             return false
         }
     }
+
     function playAgain() {
         $('.find2').fadeOut()
         $('.find').fadeOut()
@@ -181,6 +203,8 @@ $('document').ready(() => {
         })
     }
 
+
+    // Liste de mots
     let wordList = [
         "belouga",
         "chaud",
