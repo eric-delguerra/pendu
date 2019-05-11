@@ -31,25 +31,32 @@ $('document').ready(() => {
     let regex = /^[a-zA-Z]+$/
     let essais = 0
     let imgPendu = $('#pendu')
+    let langage = "fr"
     $('.game').hide()
     imgPendu.hide()
     $('#replay').hide()
     $('#playTogether').on('click', () => {
         fullpage_api.moveTo('secondPage', 'slide1')
     })
+    console.log(langage)
 
     // Langue
-setTimeout(() => {
-    $('#menu').hide()
-}, (60000))
+    setTimeout(() => {
+        $('#menu').hide()
+    }, (30000))
     langueDeBase()
     $('#frFlag').on('click', () => {
         $('#menu').fadeOut(2000)
+        langage = "fr"
     })
     $('#enFlag').on('click', () => {
         $('*.fr').hide()
         $('*.en').show()
         $('#menu').fadeOut(2000)
+        langage = "en"
+        $('#getRandom').html('Choose a word for me !')
+        $('#playTogether').html('Put your own word and play with friends')
+        $('#solo').html('Play alone')
     })
 
     //Type de jeux
@@ -123,6 +130,8 @@ setTimeout(() => {
 
     function langueDeBase() {
         $('*.en').hide()
+        $('#getRandom').html('Choisie un mot pour moi !')
+        langage = "fr"
     }
 
     function testLetter() {
@@ -182,7 +191,7 @@ setTimeout(() => {
     }
 
     function playAgain() {
-        $('.find2').fadeOut()
+        console.log(langage)
         $('.find').fadeOut()
         $('#lastTry').hide()
         lastTry = []
@@ -198,8 +207,12 @@ setTimeout(() => {
             fullpage_api.moveTo('firstPage')
             $('#replay').fadeOut(2000)
             $('.unknow').fadeOut(2000)
-            $('.find2').fadeIn(2000)
-            $('.find').fadeIn(2000)
+            if (langage === "fr") {
+                $('#findFr').fadeIn(2000)
+            } else {
+                $('#findEn').fadeIn(2000)
+            }
+
         })
     }
 
